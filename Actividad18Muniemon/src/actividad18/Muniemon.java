@@ -5,7 +5,7 @@ public class Muniemon {
 	private int vida;
 	private int ataque;
 	private int defensa;
-	private TipoMuniemon muniemon;
+	private TipoMuniemon tipo;
 	
 	public Muniemon() {
 		super();
@@ -17,13 +17,13 @@ public class Muniemon {
 		this.vida = vida;
 		this.ataque = ataque;
 		this.defensa = defensa;
-		this.muniemon = muniemon;
+		this.tipo = muniemon;
 	}
 	
 	@Override
 	public String toString() {
 		return "Muniemon [nombre=" + nombre + ", vida=" + vida + ", ataque=" + ataque + ", defensa=" + defensa
-				+ ", muniemon=" + muniemon + "]";
+				+ ", muniemon=" + tipo + "]";
 	}
 	
 	public String getNombre() {
@@ -51,10 +51,10 @@ public class Muniemon {
 		this.defensa = defensa;
 	}
 	public TipoMuniemon getMuniemon() {
-		return muniemon;
+		return tipo;
 	}
 	public void setMuniemon(TipoMuniemon muniemon) {
-		this.muniemon = muniemon;
+		this.tipo = muniemon;
 	}
 	
 	
