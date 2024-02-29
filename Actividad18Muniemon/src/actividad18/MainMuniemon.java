@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class MainMuniemon {
 
+	//private static Muniemon m;
+	//private static int edad;
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -13,6 +16,8 @@ public class MainMuniemon {
 	}
 	public static void menu() {
 		Scanner sc = new Scanner(System.in);
+		//m = null;
+		Muniemon muniemon = null;
 		int opcion;
 		do {
 			System.out.println("-------Menu:)---------");
@@ -23,10 +28,10 @@ public class MainMuniemon {
 			opcion = sc.nextInt();
 			switch(opcion) {
 			case 1:
-				altaMuniemon();
+				muniemon = altaMuniemon(sc);
 				break;
 			case 2:	
-				mostrarMuniemon(altaMuniemon());
+				mostrarMuniemon(muniemon);
 				break;
 			case 3:
 				System.out.println("Salir del programa..");
@@ -38,8 +43,7 @@ public class MainMuniemon {
 	} while (opcion != 3);
 		
 	}
-	public static Muniemon altaMuniemon() {
-		Scanner sc = new Scanner(System.in);
+	public static Muniemon altaMuniemon(Scanner sc) {
 		sc.nextLine();
 		System.out.println("Introduzca el nombre de su Mueniemon: ");
 		String nombre= sc.nextLine();
@@ -61,14 +65,14 @@ public class MainMuniemon {
 		return muniemon;
 	}
 	
-	public static void mostrarMuniemon(Muniemon m) {
-		if(m!= null) {
+	public static void mostrarMuniemon(Muniemon muniemon) {
+		if(muniemon!= null) {
 			System.out.println("--------Datos del Munuemon-----------");
-			System.out.println("Nombre: " + m.getNombre());
-			System.out.println("Vida: " + m.getVida());
-			System.out.println("Ataque: " + m.getAtaque());
-			System.out.println("Defensa: " + m.getDefensa());
-			System.out.println("Tipo: " + m.getMuniemon());
+			System.out.println("Nombre: " + muniemon.getNombre());
+			System.out.println("Vida: " + muniemon.getVida());
+			System.out.println("Ataque: " + muniemon.getAtaque());
+			System.out.println("Defensa: " + muniemon.getDefensa());
+			System.out.println("Tipo: " + muniemon.getMuniemon());
 		}else {
 			System.out.println("No hay muniemon  creado aun");
 		}
