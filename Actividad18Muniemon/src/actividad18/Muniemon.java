@@ -67,7 +67,7 @@ public class Muniemon {
 	}
 
 	public void atacar(Muniemon objetivo) {
-		System.out.println(this.nombre + "ataca a " + objetivo.getNombre() + "!");
+		System.out.println(this.nombre + "ataca a  :" + objetivo.getNombre() + "!");
 		if (this.vida < 0) {
 			System.out.println("No se puede atacar porque " + this.nombre + "esta muerto");
 
