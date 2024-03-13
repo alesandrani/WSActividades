@@ -1,5 +1,6 @@
 package actividad18;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMuniemon {
@@ -15,48 +16,43 @@ public class MainMuniemon {
 		Scanner sc = new Scanner(System.in);
 		//m = null;
 		Muniemon muniemon = null;
-		Muniemon muniemon2 = null;
+		ArrayList <Muniemon> listaMuniemon = new ArrayList<Muniemon>();
 		int opcion;
 		do {
 			System.out.println("-------Menu:)---------");
 			System.out.println("1.Dar de alta Muniemon");
-			System.out.println("2.Dar de alta segundo muniemon");
-			System.out.println("3.Mostrar primer muniemon");
-			System.out.println("4.Mostrar segundo muniemon");
-			System.out.println("5. Atacar primer Muniemon");
-			System.out.println("6. Atacar segundo muniemon");
-			System.out.println("7.Salir del programa");
+			System.out.println("2.Mostrar Muniemones");
+			System.out.println("3.Emepzar el combare");
+			System.out.println("4.Salir del programa");
 			System.out.println("-----Seleccione una opcion!-----");
 			opcion = sc.nextInt();
 			switch(opcion) {
 			case 1:
-				muniemon = altaMuniemon(sc);
+				if(listaMuniemon.size()!=2) {
+					muniemon =altaMuniemon(sc);
+					listaMuniemon.add(muniemon);
+					
+				}else {
+					System.out.println("Solo se permite crear 2 muniemones");
+				}
 				break;
 			case 2:	
-				muniemon2 = altaMuniemon(sc);
+				for(Muniemon m : listaMuniemon) {
+					mostrarMuniemon(m);
+				}
 				break;
-			case 3:	
-				mostrarMuniemon(muniemon);
+			case 3:
+				Combate combate = new Combate(listaMuniemon.get(0), listaMuniemon.get(0));
 				break;
-			case 4:	
-				mostrarMuniemon(muniemon2);
-				break;
-			case 5:
-				//atacarMuniemon(muniemon, muniemon2);
-				muniemon.atacar(muniemon2);
-				break;
-			case 6:
-				//atacarMuniemon(muniemon2, muniemon);
-				muniemon2.atacar(muniemon);
-				break;
-			case 7:
+			
+			case 4:
 				System.out.println("Salir del programa..");
 				break;
 				default:
 					System.out.println("Opcion no es valida. Por favor, seleccione una opcion valida");
 			}
 		
-	} while (opcion != 7);
+	} while (opcion != 4);
 		
 	}
 	public static Muniemon altaMuniemon(Scanner sc) {
@@ -89,6 +85,7 @@ public class MainMuniemon {
 			System.out.println("Ataque: " + muniemon.getAtaque());
 			System.out.println("Defensa: " + muniemon.getDefensa());
 			System.out.println("Tipo: " + muniemon.getMuniemon());
+			System.out.println("Velocidad: "+ muniemon.getVelocidad());
 		}else {
 			System.out.println("No hay muniemon  creado aun");
 		}

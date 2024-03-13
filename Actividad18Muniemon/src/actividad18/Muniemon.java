@@ -6,7 +6,7 @@ public class Muniemon {
 	private int ataque;
 	private int defensa;
 	private TipoMuniemon tipo;
-
+	private double velocidad;
 	public Muniemon() {
 		super();
 	}
@@ -20,16 +20,19 @@ public class Muniemon {
 		this.tipo = muniemon;
 	}
 
+
+	
+
+	
+
 	@Override
 	public String toString() {
 		return "Muniemon [nombre=" + nombre + ", vida=" + vida + ", ataque=" + ataque + ", defensa=" + defensa
-				+ ", muniemon=" + tipo + "]";
+				+ ", tipo=" + tipo + ", velocidad=" + velocidad + "]";
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -65,8 +68,18 @@ public class Muniemon {
 	public void setMuniemon(TipoMuniemon muniemon) {
 		this.tipo = muniemon;
 	}
+	
+	
+	public double getVelocidad() {
+		return velocidad;
+	}
+
+	public void setVelocidad(double velocidad) {
+		this.velocidad = velocidad;
+	}
 
 	public void atacar(Muniemon objetivo) {
+		
 		System.out.println(this.nombre + "ataca a  :" + objetivo.getNombre() + "!");
 		if (this.vida < 0) {
 			System.out.println("No se puede atacar porque " + this.nombre + "esta muerto");
